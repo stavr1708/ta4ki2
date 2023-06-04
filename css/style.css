@@ -1,0 +1,203 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+  /* 2 строчки ниже убираем дефолтные отступы */
+  margin: 0;
+  padding: 0;
+}
+/* делаю footer привязаным к низу */
+html,
+body {
+  height: 100%;
+}
+
+ul {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+  /* наследует цвет родителя */
+  color: inherit;
+}
+/* делаю footer привязаным к низу */
+.wrapper {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  max-width: 1220px;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  /* высота строки */
+  line-height: 1.3;
+}
+.header {
+  background-color: #151515;
+}
+/* этот класс идет как главка, и всё что будет
+в нём написано будет только на главной странице */
+.header-main {
+  /* прозрачный */
+  background-color: transparent;
+  /* поднятие  */
+  position: absolute;
+  z-index: 5;
+  /* растяжка */
+  left: 0;
+  right: 0;
+}
+.header__inner {
+  padding-top: 40px;
+  padding-bottom: 45px;
+  display: flex;
+  /* расспределение строк с отступами */
+  justify-content: space-between;
+  /* привязка к нижней строчке блока */
+  align-items: flex-end;
+}
+
+.menu__list {
+  display: flex;
+  /* отступ между всеми  */
+  gap: 35px;
+}
+
+.menu__list-link {
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.footer {
+  background-color: #151515;
+  padding: 50px 0 32px;
+  color: #fff;
+}
+
+.footer__menu {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 50px;
+}
+/* максимальная ширина блока, сделал для того чтобы
+строка если она будет длинной, не отдаляла следующий блок */
+.footer__menu-list {
+  max-width: 225px;
+}
+.footer__menu-title {
+  font-size: 24px;
+  font-weight: 700;
+  /* мне здесь надо отступ 40, а я пишу 20, потому что ниже уже есть отступ 20 вверх от этого элемента */
+  padding-bottom: 20px;
+}
+/* с помощью селектора +здесь переходим на следующий элемент и соответсвенно отступ идёт со второго элемента списка */
+.footer__menu-item + .footer__menu-item {
+  padding-top: 20px;
+}
+
+.app {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-bottom: 52px;
+}
+
+.footer__copy {
+  max-width: 806px;
+  /* сверху 0 , по бокам авто, снизу 30 */
+  margin: 0 auto 30px;
+  text-align: center;
+}
+
+.copy__nav-list {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+}
+/* чтобы расстянуть мэйн на сколько это возможно */
+.main {
+  flex-grow: 1;
+}
+
+.top {
+  color: #fff;
+  text-align: center;
+  padding-top: 250px;
+  padding-bottom: 50px;
+  /* поднятие */
+  position: absolute;
+  z-index: 5;
+  /* растяжка */
+  left: 0;
+  right: 0;
+}
+
+.title {
+  padding-bottom: 40px;
+  font-size: 96px;
+  font-weight: 700;
+}
+
+.top__link {
+  background-color: #151515;
+  padding: 23px;
+  max-width: 430px;
+  width: 100%;
+  /* Это значение display используют, чтобы отобразить
+   в одну строку блочные элементы, в том числе разных размеров. */
+  display: inline-block;
+  text-transform: uppercase;
+  font-size: 36px;
+  font-weight: 700;
+}
+/* затемнение */
+.swiper::after {
+  content: "";
+  background: rgba(21, 21, 21, 0.3);
+  position: absolute;
+  z-index: 5;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+}
+.swiper-slide {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+}
+/* классы полосок слайдов из консоля скопированы */
+/* мы чекаем свойства в консоле которые уже стоят и меняем их здесь под макет */
+.swiper-pagination-bullet {
+  width: 120px;
+  height: 3px;
+  background-color: #151515;
+  border-radius: 0;
+  opacity: 1;
+}
+.swiper-pagination-horizontal.swiper-pagination-bullets
+  .swiper-pagination-bullet {
+  margin: 0 15px;
+}
+.swiper-pagination-bullets.swiper-pagination-horizontal {
+  bottom: 50px;
+}
+.swiper-pagination-bullet-active {
+  height: 6px;
+  background-color: #fff;
+}
